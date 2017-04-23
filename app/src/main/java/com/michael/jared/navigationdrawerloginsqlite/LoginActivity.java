@@ -78,7 +78,6 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("IDENT",email);
                                 startActivity(intent);
                                 finish();
-                                //overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                                 progressDialog.dismiss();
                             }else{
                                 eEmail.setText(email);
