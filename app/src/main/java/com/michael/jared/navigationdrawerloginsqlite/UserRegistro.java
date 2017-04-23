@@ -124,7 +124,6 @@ public class UserRegistro extends AppCompatActivity {
                             String mesg = String.format("El correo electrónico que has introducido ya se encuentra registrado", null);
                             Toast.makeText(getApplicationContext(),mesg, Toast.LENGTH_LONG).show();
                         }else {
-                            Log.d("guarda", " bbdd al usuario ");
                             managerUsuario.insertar_parametros(null, sEmail, sPassword, bytes, sNombre);
                             String mesg = String.format("%s ha sido guardado en la BBDD", sNombre);
                             Toast.makeText(getBaseContext(),mesg, Toast.LENGTH_LONG).show();
@@ -133,7 +132,6 @@ public class UserRegistro extends AppCompatActivity {
                             startActivity(intent);
                             finish();
                             progressDialog.dismiss();
-                            //overridePendingTransition(R.anim.push_left_in, R.anim.push_left_out);
                         }
                     }
                 }, 3000);
@@ -183,10 +181,6 @@ public class UserRegistro extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         if(resultCode == RESULT_OK && requestCode == request_code){
             imageView.setImageURI(data.getData());
-
-            // se utiliza el atributo TAG para almacenar  la uri al archivo seleccionado
-            imageView.setTag(data.getData());
-
             bytes = imageToByte(imageView);
 
             // para que se vea la imagen en circulo

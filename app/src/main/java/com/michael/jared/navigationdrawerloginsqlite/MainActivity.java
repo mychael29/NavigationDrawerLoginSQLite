@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //se agrego codigo del 39 al 63
+        //se agrego codigo del 39 al 68
         Bundle b = getIntent().getExtras();
 
         ident = b.getString("IDENT");
@@ -47,18 +47,23 @@ public class MainActivity extends AppCompatActivity
 
         ((TextView) header.findViewById(R.id.tv_nombre_usuario_menu)).setText(itemUsuario.getNombre());
         ((TextView) header.findViewById(R.id.tv_correo_menu)).setText(itemUsuario.getCorreo());
+
         Bitmap bitmapsinfoto = BitmapFactory.decodeResource(getResources(),R.drawable.imagen);
         RoundedBitmapDrawable roundedBitmapDrawablesinfoto = RoundedBitmapDrawableFactory.create(getResources(), bitmapsinfoto);
         roundedBitmapDrawablesinfoto.setCircular(true);
+
         ((ImageView) header.findViewById(R.id.imageView)).setImageDrawable(roundedBitmapDrawablesinfoto);
 
         if(itemUsuario.getBytes()!=null){
             byte[] foodImage = itemUsuario.getBytes();
             Bitmap bitmap = BitmapFactory.decodeByteArray(foodImage, 0, foodImage.length);
+
             ((ImageView) header.findViewById(R.id.imageView)).setImageBitmap(bitmap);
+
             Bitmap bitmap2 = ((BitmapDrawable)((ImageView) header.findViewById(R.id.imageView)).getDrawable()).getBitmap();
             RoundedBitmapDrawable roundedBitmapDrawable = RoundedBitmapDrawableFactory.create(getResources(), bitmap2);
             roundedBitmapDrawable.setCircular(true);
+
             ((ImageView) header.findViewById(R.id.imageView)).setImageDrawable(roundedBitmapDrawable);
         }
 
